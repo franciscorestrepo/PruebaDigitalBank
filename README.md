@@ -93,7 +93,7 @@ $$ LANGUAGE plpgsql;
 ⚙️ Configuración de la solución
 
 1. Clona el proyecto
-git clone https://github.com/tu-usuario/UsuarioSistema.git
+git clone https://github.com/franciscorestrepo/PruebaDigitalBank.git
 
 2. Verifica la conexión en Usuario.API/appsettings.json:
 "ConnectionStrings": {
