@@ -1,0 +1,32 @@
+﻿@model List<Usuario.Web.Models.UsuarioViewModel>
+
+<h2>Gestión de Usuarios</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Sexo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.FechaNacimiento.ToString("yyyy-MM-dd")</td>
+                <td>@usuario.Sexo</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@usuario.Id" class="btn btn-warning btn-sm">Editar</a>
+
+                    <form asp-action="Delete" asp-route-id="@usuario.Id" method="post" style="display:inline;"
+                          onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
