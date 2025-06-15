@@ -35,10 +35,13 @@ namespace Usuario.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateUsuario([FromBody] User usuario) 
+        public IActionResult CreateUsuario([FromBody] User usuario)
         {
-            var lista = _usuarioService.CrearUsuario(usuario);
-            return Ok(lista);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            _usuarioService.CrearUsuario(usuario);
+            return Ok(usuario);
         }
 
         [HttpPut("{id}")]

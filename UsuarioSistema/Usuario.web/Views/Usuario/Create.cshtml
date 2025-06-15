@@ -1,18 +1,20 @@
 ﻿@model Usuario.Web.Models.UsuarioViewModel
 
-<h2>Editar Usuario</h2>
+<h2>Crear Usuario</h2>
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
+<form asp-action="Create" method="post">  
 
     <div class="form-group">
         <label asp-for="Nombre"></label>
         <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="FechaNacimiento"></label>
         <input asp-for="FechaNacimiento" type="date" class="form-control" />
+        <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -22,8 +24,13 @@
             <option value="M">Masculino</option>
             <option value="F">Femenino</option>
         </select>
+        <span asp-validation-for="Sexo" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
     <a asp-action="Gestion" class="btn btn-secondary">Cancelar</a>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

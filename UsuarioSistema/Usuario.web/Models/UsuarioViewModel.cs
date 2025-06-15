@@ -4,7 +4,7 @@ namespace Usuario.Web.Models
 {
     public class UsuarioViewModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Required]
         public string? Nombre { get; set; }
@@ -14,6 +14,7 @@ namespace Usuario.Web.Models
         public DateTime FechaNacimiento { get; set; }
 
         [Required]
+        [StringLength(1)]
         public string? Sexo { get; set; }
     }
 }
